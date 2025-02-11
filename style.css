@@ -106,9 +106,19 @@ h3 {
 
 .page-title {
     font-size: var(--fs-800);
+    font-weight: var(--fw-700);
+}
+
+.page-title span {
+    font-weight: var(--fw-800);
+    color: var(--clr-luxury-gold);
 }
 
 .page-intro {
+    font-size: var(--fs-700);
+}
+
+.page-subtitle {
     font-size: var(--fs-600);
     font-style: italic;
 }
