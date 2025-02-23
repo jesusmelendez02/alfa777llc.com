@@ -23,3 +23,20 @@ navLinks.forEach((link) => {
     document.body.classList.remove("no-scroll"); // Allow scrolling again
   });
 });
+
+
+// scroll animations 
+
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll(".image-container");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, {threshold: 0.4});
+
+    images.forEach((img) => observer.observe(img));
+});
