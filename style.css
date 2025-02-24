@@ -31,6 +31,7 @@
   --br-button: 8px;
 
   --border-neutral-100: 2px solid var(--clr-marble-white);
+  --border-neutral-800: 2px solid var(--clr-charcoal-black);
   --border-accent: 2px solid var(--clr-luxury-gold);
 
   --spacer: 1.25rem;
@@ -221,6 +222,12 @@ ul[class],
 ol[class] {
   font-size: var(--fs-500);
 }
+
+/* smooth srolling */
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* general layout */
 
@@ -442,7 +449,7 @@ section {
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
-    z-index: 2000;
+    z-index: 9999;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="22.243" height="22.243" viewBox="0 0 22.243 22.243"><path id="Icon_feather-x" data-name="Icon feather-x" d="M27,9,9,27M9,9,27,27" transform="translate(-6.879 -6.879)" fill="none" stroke="%23daa520" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>');
   }
 }
@@ -452,17 +459,15 @@ section {
 }
 
 .stone__content {
-  --flow-spacer: .25em;
+  --flow-spacer: 0.25em;
   border-bottom: var(--border-accent);
   max-width: 55ch;
-
 }
-
 
 .stone__content h4 {
   font-size: var(--fs-500);
   text-transform: uppercase;
-  margin-block: 0; 
+  margin-block: 0;
 }
 
 .stone__content h5 {
@@ -470,7 +475,7 @@ section {
   font-weight: var(--fw-700);
   text-transform: uppercase;
   margin-top: 1.25em;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 
 .stone__content ul {
@@ -479,14 +484,14 @@ section {
 }
 
 .stone__content li {
-  padding-inline-start: .5em;
+  padding-inline-start: 0.5em;
 }
 
 .cabinets {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   justify-items: center;
-  gap: var(--gap, 1.25rem);
+  gap: var(--gap, 2.5rem);
 }
 
 .cabinets figure {
@@ -503,24 +508,110 @@ section {
   margin-top: 0.5em;
 }
 
-@media (min-width: 800px) {
+.contact header {
+  --flow-spacer: 0.5em;
+}
 
+.contact__content {
+  border: var(--border-neutral-100);
+  border-start-start-radius: 5px;
+  border-start-end-radius: 5px;
+  padding-block: 2rem;
+  padding-inline: 1.75rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  padding-inline: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  --flow-spacer: 0.5rem;
+
+  padding-block: 0.75rem;
+  padding-inline: 0.5rem;
+
+  border: var(--border-neutral-800);
+  border-radius: 4px;
+
+  resize: none;
+}
+
+.contact-form input::file-selector-button {
+  font-family: var(--ff-primary);
+  color: var(--clr-marble-white);
+  background-color: var(--clr-charcoal-black);
+  border: none;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 4px;
+}
+
+.contact-form button {
+  display: block;
+  max-width: none;
+  padding-block: 0.75rem;
+}
+
+.contact__call-us {
+  background-color: var(--clr-marble-white);
+  padding-block: 2rem;
+  padding-inline: 1.75rem;
+  border-end-start-radius: 5px;
+  border-end-end-radius: 5px;
+}
+
+.contact__call-us p {
+  font-size: var(--fs-600);
+  font-weight: var(--fw-700);
+}
+
+.contact__call-us ul {
+  margin: 0;
+  font-weight: var(--fw-600);
+}
+
+@media (min-width: 800px) {
   .stone {
     --gap: 5em;
-}
+  }
 
   .stone:nth-child(odd) {
     flex-direction: row-reverse;
   }
 
-
   .cabinets {
     grid-template-columns: repeat(4, 1fr); /* 4 columns for 8 images */
   }
+
+  .contact {
+    --gap: 2.5em;
+  }
+
+  .contact__call-us {
+    align-items: center;
+  }
 }
+
 @media (min-width: 1280px) {
   .cabinets {
     grid-template-columns: repeat(8, 1fr); /* 4 columns for 8 images */
+  }
+
+  .contact {
+    --gap: 5em;
+  }
+
+  .contact__call-us > p {
+    text-align: center;
   }
 }
 
@@ -582,7 +673,7 @@ section {
 
 .stones__header {
   margin-block-start: 2.5rem;
-  --flow-spacer: .25rem;
+  --flow-spacer: 0.25rem;
 }
 
 .stones__subtitle {
@@ -736,6 +827,12 @@ section {
   text-decoration: none;
 }
 
+.instagram {
+  display: flex;
+  justify-content: center;
+}
+
+
 .copyright {
   font-size: var(--fs-300);
   font-weight: var(--fw-400);
@@ -821,6 +918,10 @@ section {
     display: grid;
     justify-content: center;
   }
+
+  .instagram {
+  justify-content: flex-start;
+}
 }
 
 .image-container {
@@ -851,11 +952,9 @@ section {
   --end-y: 0;
 }
 
-
 .image-container.animate::after {
   animation: reveal 1.2s ease-in-out forwards;
 }
-
 
 /* reveal animation */
 @keyframes reveal {
