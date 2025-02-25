@@ -350,11 +350,11 @@ section {
 
 .primary-header {
   position: sticky;
-  z-index: 1000;
   top: 0;
+  z-index: 1000;
   background-color: rgba(60, 57, 53, 0.8);
+  backdrop-filter: blur(15px);
   padding-block: 0.5rem;
-  backdrop-filter: blur(10px);
 }
 
 .primary-header__content {
@@ -411,17 +411,17 @@ section {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(60, 57, 53, 0.8);
+    background-color: hsla(34, 6%, 22%, 0.1);
+    /* background-color: rgba(60, 57, 53, 0.8); */
     backdrop-filter: blur(15px);
     list-style: none;
-    padding: min(7rem, 15vh) 1.25rem;
+    padding:  25vh 1.25rem;
     transform: translateY(-200%);
     transition: transform 600ms ease-in-out;
   }
 
   .primary-nav__list {
     flex-direction: column;
-    display: flex;
     align-items: flex-start;
     gap: 2.5rem;
   }
@@ -435,8 +435,9 @@ section {
   }
 
   .mobile-nav-toggle {
+    position: absolute;
     display: block;
-    order: 3;
+    right: var(--layout-spacer);
     background: transparent;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="21" viewBox="0 0 30 21"><path id="Icon_feather-menu" data-name="Icon feather-menu" d="M18.178,18H31.5M4.5,9h27M4.5,27h27" transform="translate(-3 -7.5)" fill="none" stroke="%23daa520" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>');
     background-repeat: no-repeat;
@@ -445,13 +446,14 @@ section {
     width: 1.5rem;
     aspect-ratio: 1;
     border: 0;
-    z-index: 2000;
+    z-index: 9999;
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
-    z-index: 9999;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="22.243" height="22.243" viewBox="0 0 22.243 22.243"><path id="Icon_feather-x" data-name="Icon feather-x" d="M27,9,9,27M9,9,27,27" transform="translate(-6.879 -6.879)" fill="none" stroke="%23daa520" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></svg>');
   }
+
+  
 }
 
 .stone {
