@@ -354,8 +354,8 @@ section {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(60, 57, 53, 0.8);
-  backdrop-filter: blur(15px);
+  background-color: rgba(60, 57, 53, 1);
+  /* backdrop-filter: blur(15px); */
   padding-block: 0.5rem;
 }
 
